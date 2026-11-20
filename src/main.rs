@@ -1,4 +1,4 @@
-use crate::scanner::{print_dir_name, scan_directory};
+use crate::scanner::{categorize_entries, print_dir_name, scan_directory};
 
 mod scanner;
 
@@ -17,6 +17,12 @@ fn main() {
                 match scan_directory() {
                     Ok(()) => {}
                     Err(error) => eprintln!("Error: {}", error)
+                }
+            }
+            else if command == "categorize" {
+                match categorize_entries() {
+                    Ok(()) => {}
+                    Err(error) => eprint!("Error: {}", error)
                 }
             }
             else {
